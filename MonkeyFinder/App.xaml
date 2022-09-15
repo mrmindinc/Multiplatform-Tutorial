@@ -1,0 +1,129 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MindMap"
+             x:Class="MindMap.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#FFC107</Color>
+            <Color x:Key="PrimaryDark">#FFA000</Color>
+            <Color x:Key="Accent">#00BCD4</Color>
+
+            <Color x:Key="LightBackground">#FAF9F8</Color>
+            <Color x:Key="DarkBackground">#000</Color>
+
+            <Style TargetType="Page"
+                   ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource LightBackground}">
+                </Setter>
+            </Style>
+
+            <Style ApplyToDerivedTypes="True"
+                   TargetType="NavigationPage">
+                <Setter Property="BackgroundColor"
+                        Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+                </Setter>
+                <Setter Property="BarBackgroundColor"
+                        Value="{StaticResource Primary}">
+                </Setter>
+                <Setter Property="BarTextColor"
+                        Value="#FFF">
+                </Setter>
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="BaseLabel">
+                <Setter Property="FontFamily"
+                        Value="OpenSansRegular">
+                </Setter>
+                <Setter Property="TextColor"
+                        Value="#1F1F1F">
+                </Setter>
+            </Style>
+
+            <Style x:Key="MicroLabel"
+                   BasedOn="{StaticResource BaseLabel}"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="10">
+                </Setter>
+            </Style>
+
+            <Style x:Key="SmallLabel"
+                   BasedOn="{StaticResource BaseLabel}"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="12">
+                </Setter>
+            </Style>
+
+            <Style x:Key="MediumLabel"
+                   BasedOn="{StaticResource BaseLabel}"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="16">
+                </Setter>
+            </Style>
+
+            <Style x:Key="LargeLabel"
+                   BasedOn="{StaticResource BaseLabel}"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="20">
+                </Setter>
+            </Style>
+
+            <Style TargetType="RefreshView"
+                   ApplyToDerivedTypes="True">
+                <Setter Property="RefreshColor"
+                        Value="{StaticResource Primary}">
+                </Setter>
+            </Style>
+
+            <Style x:Key="ButtonOutline"
+                   TargetType="Button">
+                <Setter Property="Background"
+                        Value="{StaticResource LightBackground}">
+                </Setter>
+                <Setter Property="TextColor"
+                        Value="{StaticResource Primary}">
+                </Setter>
+                <Setter Property="BorderColor"
+                        Value="{StaticResource Primary}">
+                </Setter>
+                <Setter Property="BorderWidth"
+                        Value="2">
+                </Setter>
+                <Setter Property="HeightRequest"
+                        Value="40">
+                </Setter>
+                <Setter Property="CornerRadius"
+                        Value="20">
+                </Setter>
+            </Style>
+
+            <Style x:Key="CardView"
+                   TargetType="Frame">
+                <Setter Property="BorderColor"
+                        Value="#DDD">
+                </Setter>
+                <Setter Property="HasShadow"
+                        Value="True">
+                </Setter>
+                <Setter Property="Padding"
+                        Value="0">
+                </Setter>
+                <Setter Property="Background"
+                        Value="{StaticResource LightBackground}">
+                </Setter>
+                <Setter Property="CornerRadius"
+                        Value="10">
+                </Setter>
+                <Setter Property="IsClippedToBounds"
+                        Value="True">
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
