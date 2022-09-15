@@ -1,4 +1,6 @@
-﻿namespace MindMap
+﻿using MindMap.View;
+
+namespace MindMap
 {
     public static class MauiProgram
     {
