@@ -37,6 +37,7 @@
 
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="DevExpress.Maui.Charts" Version="22.1.5" />
 		<PackageReference Include="DevExpress.Maui.CollectionView" Version="22.1.5" />
 		<PackageReference Include="DevExpress.Maui.Editors" Version="22.1.5" />
@@ -53,6 +54,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Pages\Dashboard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\MobileShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

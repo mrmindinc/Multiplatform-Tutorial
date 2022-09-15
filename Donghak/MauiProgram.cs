@@ -2,6 +2,8 @@
 
 using Microsoft.Maui.Controls.Compatibility.Hosting;
 
+using ShareInvest.ViewModels;
+
 namespace ShareInvest
 {
     public static class MauiProgram
@@ -14,7 +16,12 @@ namespace ShareInvest
                 .UseMauiApp<App>()
                 .UseDevExpress()
                 .UseMauiCompatibility()
+                .ConfigureEssentials(essentials =>
+                {
+                    essentials.UseVersionTracking();
+                })
                 .ConfigureServices()
+                .ConfigureViewModels()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

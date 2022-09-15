@@ -7,7 +7,9 @@ namespace ShareInvest
         public App()
         {
             InitializeComponent();
-            MainPage = new Dashboard();
+            MainPage = new MobileShell();
+
+            Routing.RegisterRoute(nameof(Dashboard), typeof(Dashboard));
         }
     }
 }
