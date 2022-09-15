@@ -1,9 +1,13 @@
-namespace MindMap.View;
+using MindMap.ViewModel;
 
-public partial class MainPage : ContentPage
+namespace MindMap.View
 {
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    public partial class MainPage : ContentPage
+    {
+        public MainPage(MonkeysViewModel vm)
+        {
+            InitializeComponent();
+            BindingContext = vm;
+        }
+    }
 }

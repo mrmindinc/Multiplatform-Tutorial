@@ -2,8 +2,30 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:MindMap.Model"
+             xmlns:viewmodel="clr-namespace:MindMap.ViewModel"
              x:Class="MindMap.View.MainPage"
-             x:DataType="model:Monkey">
+             x:DataType="viewmodel:MonkeysViewModel"
+             Title="{Binding Title}">
+    
+    <!-- MVVM -->
+    <Grid ColumnDefinitions="*, *"
+          ColumnSpacing="5"
+          RowDefinitions="*, Auto"
+          RowSpacing="0">
+        <CollectionView Grid.ColumnSpan="2"
+                        ItemsSource="{Binding Monkeys}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Monkey">
+                    <Grid Padding="10">
+                        
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+    
+    <!-- Displaying Data
     <CollectionView>
         <CollectionView.ItemsSource>
             <x:Array Type="{x:Type model:Monkey}">
@@ -46,4 +68,5 @@
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
+    -->
 </ContentPage>
