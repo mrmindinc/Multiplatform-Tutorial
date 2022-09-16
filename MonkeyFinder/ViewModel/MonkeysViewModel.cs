@@ -55,6 +55,7 @@ namespace MindMap.ViewModel
             finally
             {
                 IsBusy = false;
+                IsRefreshing = false;
             }
         }
         [RelayCommand]
