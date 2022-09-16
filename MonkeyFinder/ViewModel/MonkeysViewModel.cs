@@ -44,7 +44,7 @@ namespace MindMap.ViewModel
                 if (Monkeys.Count != 0)
                     Monkeys.Clear();
 
-                foreach (var monkey in monkeys)
+                foreach (var monkey in monkeys.OrderBy(o => Guid.NewGuid()))
                     Monkeys.Add(monkey);
             }
             catch (Exception ex)
