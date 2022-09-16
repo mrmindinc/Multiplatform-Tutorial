@@ -2,9 +2,9 @@ using MindMap.ViewModel;
 
 namespace MindMap.View
 {
-    public partial class MainPage : ContentPage
+    public partial class DetailsPage : ContentPage
     {
-        public MainPage(MonkeysViewModel vm)
+        public DetailsPage(MonkeyDetailsViewModel vm)
         {
             InitializeComponent();
 

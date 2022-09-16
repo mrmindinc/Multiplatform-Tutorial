@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:MindMap.Model"
              xmlns:viewmodel="clr-namespace:MindMap.ViewModel"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="True"
              x:Class="MindMap.View.MainPage"
              x:DataType="viewmodel:MonkeysViewModel"
              Title="{Binding Title}">
-    
-    <!-- MVVM -->
+
     <Grid ColumnDefinitions="*, *"
           ColumnSpacing="5"
           RowDefinitions="*, Auto"
@@ -18,13 +19,65 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Monkey">
                     <Grid Padding="10">
-                        
+                        <Frame HeightRequest="125"
+                               Style="{StaticResource CardView}">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MonkeysViewModel}}, Path=GoToDetailsCommand}">
+                                </TapGestureRecognizer>
+                            </Frame.GestureRecognizers>
+
+                            <Grid Padding="0"
+                                  ColumnDefinitions="125, *">
+                                <Image Aspect="AspectFill"
+                                       Source="{Binding Image}"
+                                       WidthRequest="125"
+                                       HeightRequest="125">
+                                </Image>
+                                <VerticalStackLayout VerticalOptions="Center"
+                                                     Grid.Column="1"
+                                                     Padding="0">
+                                    <Label Style="{StaticResource LargeLabel}"
+                                           Text="{Binding Name}">
+                                    </Label>
+                                    <Label Style="{StaticResource MediumLabel}"
+                                           Text="{Binding Location}">
+                                    </Label>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <Button Text="Get Monkeys"
+                Command="{Binding GetMonkeysCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Grid.Row="1"
+                Grid.Column="0"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8">
+        </Button>
+
+        <Button Text="Find Closest"
+                Command="{Binding GetClosestMonkeyCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Grid.Row="1"
+                Grid.Column="1"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8">
+        </Button>
+
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Grid.RowSpan="2"
+                           Grid.ColumnSpan="2">
+        </ActivityIndicator>
     </Grid>
-    
+
     <!-- Displaying Data
     <CollectionView>
         <CollectionView.ItemsSource>

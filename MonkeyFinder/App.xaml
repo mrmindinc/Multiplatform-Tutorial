@@ -64,6 +64,9 @@
                 <Setter Property="FontSize"
                         Value="16">
                 </Setter>
+                <Setter Property="Padding"
+                        Value="2.5,0,0,0">
+                </Setter>
             </Style>
 
             <Style x:Key="LargeLabel"
@@ -71,6 +74,9 @@
                    TargetType="Label">
                 <Setter Property="FontSize"
                         Value="20">
+                </Setter>
+                <Setter Property="Padding"
+                        Value="3,0,0,0">
                 </Setter>
             </Style>
 

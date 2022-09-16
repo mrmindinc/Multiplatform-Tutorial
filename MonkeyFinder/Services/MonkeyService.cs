@@ -8,7 +8,7 @@ namespace MindMap.Services
     {
         public async Task<List<Monkey>> GetMonkeys()
         {
-            if (monkeyList.Count > 0)
+            if (monkeyList?.Count > 0)
                 return monkeyList;
 
             var response = await httpClient.GetAsync("https://www.montemagno.com/monkeys.json");
