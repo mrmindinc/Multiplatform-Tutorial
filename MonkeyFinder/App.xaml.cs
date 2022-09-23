@@ -1,4 +1,6 @@
-﻿namespace MindMap
+﻿using MindMap.Shells;
+
+namespace MindMap
 {
     public partial class App : Application
     {

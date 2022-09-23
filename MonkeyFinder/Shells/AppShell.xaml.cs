@@ -1,6 +1,6 @@
 ﻿using MindMap.View;
 
-namespace MindMap
+namespace MindMap.Shells
 {
     public partial class AppShell : Shell
     {
